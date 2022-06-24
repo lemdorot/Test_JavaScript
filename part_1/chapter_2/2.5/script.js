@@ -1,6 +1,10 @@
-// Простая страница
-// Создайте страницу, которая спрашивает имя у пользователя и выводит его.
+// Шаблонные строки
+// Что выведет этот скрипт?
 
-let name;
-name = prompt('Ваше имя');
-alert(name);
+let name = "Ilya";
+
+alert( `hello ${1}` ); // hello 1
+
+alert( `hello ${"name"}` ); // hello name
+
+alert( `hello ${name}` ); // hello Ilya 
