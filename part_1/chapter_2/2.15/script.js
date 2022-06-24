@@ -1,63 +1,95 @@
-// Напишите "if", аналогичный "switch"
-// Напишите if..else, соответствующий следующему switch:
+// Обязателен ли "else"?
+// Следующая функция возвращает true, если параметр age больше 18.
+// В ином случае она запрашивает подтверждение через confirm и возвращает его результат:
 
-// switch (browser) {
-//   case 'Edge':
-//     alert( "You've got the Edge!" );
-//     break;
-
-//   case 'Chrome':
-//   case 'Firefox':
-//   case 'Safari':
-//   case 'Opera':
-//     alert( 'Okay we support these browsers too' );
-//     break;
-
-//   default:
-//     alert( 'We hope that this page looks ok!' );
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     // ...
+//     return confirm('Родители разрешили?');
+//   }
 // }
+// Будет ли эта функция работать как-то иначе, если убрать else?
 
-let browser = prompt('Введите название браузера');
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   }
+//   // ...
+//   return confirm('Родители разрешили?');
+// }
+// Есть ли хоть одно отличие в поведении этого варианта?
+// ответ: отличий нет
 
-if (browser == 'Edge') {
-  alert( "You've got the Edge!" );
-} else if (browser == 'Chrome' ||
-          browser == 'Firefox' ||
-          browser == 'Safari' ||
-          browser == 'Opera' ||) {
-  alert( 'Okay we support these browsers too' );
+
+// Перепишите функцию, используя оператор '?' или '||'
+// Следующая функция возвращает true, если параметр age больше 18.
+// В ином случае она задаёт вопрос confirm и возвращает его результат.
+
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Родители разрешили?');
+//   }
+// }
+// Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
+
+// Сделайте два варианта функции checkAge:
+
+// Используя оператор ?
+// Используя оператор ||
+
+function checkAge1(age) {
+  return age > 18 ? true : confirm('Родители разрешили?');
+}
+
+function checkAge2(age) {
+  return (age > 18) || confirm('Родители разрешили?');
+}
+
+
+// Функция min(a, b)
+// Напишите функцию min(a,b), которая возвращает меньшее из чисел a и b.
+
+// Пример вызовов:
+
+// min(2, 5) == 2
+// min(3, -1) == -1
+// min(1, 1) == 1
+
+function min (a, b) {
+  return a < b ? a : b;
+}
+
+
+// Функция pow(x,n)
+// Напишите функцию pow(x,n), которая возвращает x в степени n. Иначе говоря, умножает x на себя n раз и возвращает результат.
+
+// pow(3, 2) = 3 * 3 = 9
+// pow(3, 3) = 3 * 3 * 3 = 27
+// pow(1, 100) = 1 * 1 * ...* 1 = 1
+// Создайте страницу, которая запрашивает x и n, а затем выводит результат pow(x,n).
+
+function pow(x, n) {
+  let res = x;
+
+  for (let i = 1; i < n; i++) {
+    res *= x;
+  }
+
+  return res;
+}
+
+let x = prompt("Введите x", '');
+let n = prompt("Введите n", '');
+
+if (n < 1) {
+  alert(`Степень ${n} не поддерживается, используйте натуральное число`);
 } else {
-  alert( 'We hope that this page looks ok!' );
+  alert( pow(x, n) );
 }
 
-// Переписать условия "if" на "switch"
-// Перепишите код с использованием одной конструкции switch:
 
-// const number = +prompt('Введите число между 0 и 3', '');
 
-// if (number === 0) {
-//   alert('Вы ввели число 0');
-// }
-
-// if (number === 1) {
-//   alert('Вы ввели число 1');
-// }
-
-// if (number === 2 || number === 3) {
-//   alert('Вы ввели число 2, а может и 3');
-// }
-
-const number = +prompt('Введите число между 0 и 3', '');
-
-switch (number) {
-  case 0:
-    alert('Вы ввели число 0');
-    break;
-  case 1:
-    alert('Вы ввели число 1');
-    break;
-  case 2:
-  case 3:
-    alert('Вы ввели число 2, а может и 3');
-    break;
-}
