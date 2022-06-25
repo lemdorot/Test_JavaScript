@@ -145,8 +145,8 @@ function getMaxSubSum(arr) {
     return maxSum;
 }
 
-console.log([-1, 2, 3, -9]);
-console.log([-1, 2, 3, -9, 11]);
-console.log([-2, -1, 1, 2]);
+console.log(getMaxSubSum([-1, 2, 3, -9]));
+console.log(getMaxSubSum([-1, 2, 3, -9, 11]));
+console.log(getMaxSubSum([-2, -1, 1, 2]));
 
 
