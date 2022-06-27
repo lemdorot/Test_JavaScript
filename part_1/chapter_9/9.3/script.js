@@ -22,4 +22,4 @@ class Rabbit extends Object {
 
 let rabbit = new Rabbit("Кроль");
 
-console.log( rabbit.hasOwnProperty('name') ); // Ошибка
+console.log( rabbit.hasOwnProperty('name') );
