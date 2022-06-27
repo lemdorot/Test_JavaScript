@@ -1,85 +1,42 @@
 'use strict'
 
-let animal = {
-  jumps: null
-};
-let rabbit = {
-  __proto__: animal,
-  jumps: true
-};
+// Перепишите класс
 
-console.log( rabbit.jumps ); // true
-
-delete rabbit.jumps;
-
-console.log( rabbit.jumps ); // null
-
-delete animal.jumps;
-
-console.log( rabbit.jumps ); // undefined
-
-
-// Алгоритм поиска
-
-let head = {
-  glasses: 1
-};
-
-let table = {
-  pen: 3,
-  __proto__: head
-};
-
-let bed = {
-  sheet: 1,
-  pillow: 2,
-  __proto__: table
-};
-
-let pockets = {
-  money: 2000,
-  __proto__: bed
-};
-
-console.log( pockets.pen ); // 3
-console.log( bed.glasses ); // 1
-console.log( table.money ); // undefined
-
-// Куда будет произведена запись?
-
-let animal1 = {
-  eat() {
-    this.full = true;
+class Clock {
+  constructor({ template }) {
+    this.template = template;
   }
-};
 
-let rabbit1 = {
-  __proto__: animal1
-};
+  render() {
+    let date = new Date();
 
-rabbit.eat();
+    let hours = date.getHours();
+    if (hours < 10) hours = '0' + hours;
 
-// Ответ: rabbit
+    let mins = date.getMinutes();
+    if (mins < 10) mins = '0' + mins;
 
-// Почему наедаются оба хомяка?
+    let secs = date.getSeconds();
+    if (secs < 10) secs = '0' + secs;
 
-let hamster = {
-  stomach: [],
+    let output = this.template
+      .replace('h', hours)
+      .replace('m', mins)
+      .replace('s', secs);
 
-  eat(food) {
-    this.stomach = [food];
+    console.log(output);
   }
-};
 
-let speedy = {
-  __proto__: hamster
-};
+  stop() {
+    clearInterval(this.timer);
+  }
 
-let lazy = {
-  __proto__: hamster
-};
+  start() {
+    this.render();
+    this.timer = setInterval(() => this.render(), 1000);
+  }
+}
 
-speedy.eat("apple");
-console.log( speedy.stomach ); 
 
-console.log( lazy.stomach );
+let clock = new Clock({template: 'h:m:s'});
+clock.start();
