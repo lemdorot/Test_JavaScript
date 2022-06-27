@@ -16,6 +16,7 @@
 //3. table.querySelector('td')
 //4. let form = document.querySelector('form[name="search"]')
 //5. form.querySelector('input')
-//6. form.querySelectorAll('input')[inputs.length-1]
+//6. let inputs = form.querySelectorAll('input') // найти все input
+//   inputs[inputs.length-1]
 
 
