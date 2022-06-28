@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .icon {
+        width: 16px;
+        height: 16px;
+        float: left;
+      }
+  
+      .open .icon {
+        cursor: pointer;
+        background: url(https://js.cx/sprite-tree/minus.gif);
+      }
+  
+      .closed .icon {
+        cursor: pointer;
+        background: url(https://js.cx/sprite-tree/plus.gif);
+      }
+  
+      .leaf .icon {
+        cursor: text;
+        background: url(https://js.cx/sprite-tree/article.gif);
+      }
+  
+      li {
+        list-style: none;
+      }
+  
+      .text {
+        margin: 6px 0 6px 16px;
+      }
+
+      .nav {
+  height: 40px;
+  width: 80%;
+  margin: auto;
+}
+
+.nav .left {
+  float: left;
+  cursor: pointer;
+}
+
+.nav .right {
+  float: right;
+  cursor: pointer;
+}
+
+.nav .pages {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav .pages li {
+  display: inline;
+  margin: 0 3px;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.left1 {
+    float:left;
+    width:30%;
+    background: #aef;
+  }
+
+  .right1 {
+    float:right;
+    width:70%;
+    background: tan;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    border-left: 2px solid green;
+    padding-left: 10px;
+  }
+    </style>
+</head>
+<body>
+
+  <!-- Дерево с многострочными узлами -->
+
+  <ul>
+    <li class="open">
+      <div class="icon"></div>
+      <div class="text">Раздел 1
+        <br>(занимает две строки)</div>
+      <ul>
+        <li class="closed">
+          <div class="icon"></div>
+          <div class="text">Раздел 1.1</div>
+        </li>
+        <li class="leaf">
+          <div class="icon"></div>
+          <div class="text">Страница 1.2
+            <br>(занимает две строки)</div>
+        </li>
+      </ul>
+    </li>
+    <li class="closed">
+      <div class="icon"></div>
+      <div class="text">Раздел 2
+        <br>(занимает две строки)</div>
+    </li>
+  </ul>
+
+  <!-- Постраничная навигация (CSS) -->
+
+  <div class="nav">
+    <img src="arrow-left.jpg" class="left" width="40" height="40">
+    <img src="arrow-right.jpg" class="right" width="40" height="40">
+    <ul class="pages">
+      <li>1 2 3 4 5 6 7 8 9</li>
+    </ul>
+  </div>
+
+  <!-- Добавить рамку, сохранив ширину -->
+
+  <div class="left1">
+      Левая<br>Колонка
+   </div>
+   <div class="right1">
+      Правая<br>Колонка<br>...
+   </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
